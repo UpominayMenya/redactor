@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Diplom4iiik</title>
+  <script src="https://unpkg.com/vue"></script>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- item template -->
+  <script type="text/x-template" id="item-template">
+    <li>
+      <div 
+      @click="newCurrentElem">
+      <span v-if="isFolder" @click="toggle" >[{{ isOpen ? '-' : '+' }}]</span>
+        {{ item.name }}
+        
+      </div>
+      <ul v-show="isOpen" v-if="isFolder">
+        <tree-item
+          v-for="(child, index) in item.children"
+          :key="index"
+          :id="index"
+          :item="child"
+        ></tree-item>
+      </ul>
+    </li>
+  </script>
+
+ </head>
+ <body>
+    <div class="main" id = "main_block">
+        <div class="devPanel">
+            <div class = "inline" v-if="curr_el.typeOf === 'TechProcess' || curr_el.typeOf === 'OperationFromClassifier'">
+                <button class="iconOn" @click="addNewOperation"> +Оп </button>
+             </div>
+              <div class = "inline" v-else>
+                <button class="iconOff" > +Оп </button>
+            </div>
+
+            <div class = "inline" v-if="curr_el.typeOf === 'OperationFromClassifier' || curr_el.typeOf === 'TransitionFromClassifier'">
+                <button class="iconOn" @click="addNewTransition"> +Пере </button>
+              </div>
+              <div class = "inline" v-else>
+                <button class="iconOff" > +Пере </button>
+            </div>
+            <div class = "inline" v-if="curr_el.typeOf === 'OperationFromClassifier' || curr_el.typeOf === 'TransitionFromClassifier' || curr_el.typeOf === 'STOFromClassifier'">
+                <button class="iconOn" @click="addNewSTO"> +СТО </button>
+              </div>
+              <div class = "inline" v-else>
+                <button class="iconOff" > +СТО </button>
+            </div>
+        </div>
+
+
+        <div class = "win"> 
+            <ul>
+                <tree-item
+                :item="main_tree"
+                ></tree-item>
+            </ul>
+        </div>
+
+        <div class = "win">
+            <div class="propStr" v-for="(property, index) in curr_el.props"><div class="prop">{{property.name}}</div> <input placeholder="Введите значение" class="propVal" :id="index" @change="changeValue" :value="property.value"></div>
+        </div>
+
+    </div>
+     
+     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+     <script src="vueApp.js"></script>
+ </body>
+</html>
