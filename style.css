@@ -1,0 +1,70 @@
+.main{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10px;
+    padding-left: 10px;
+    border: 1px solid black;
+    width: 90%;
+    height: auto;
+    min-height: 100px;
+}
+.devPanel{
+    margin-top: 10px;
+    width: 14%;
+    min-height: 25px;
+    display: flex;
+    justify-content: space-between;
+    /*border: 1px solid black;*/
+}
+.iconOn{
+    min-width: 19px;
+    height: 19px;
+    background-color: #bbb;
+    border:1px solid black;
+    vertical-align:middle;
+    margin: 3px;
+}
+.iconOn:hover{
+    cursor: pointer;
+}
+.iconOff{
+    min-width: 19px;
+    height: 19px;
+    color: #bbb;
+    border:1px solid gray;
+    vertical-align:middle;
+    margin: 3px;
+}
+.iconOff:hover{
+    cursor: default;
+}
+.inline{
+    display:inline-block;
+    vertical-align:middle;
+}
+.win{
+    margin-top: 10px;
+    padding: 5px;
+    width:45%;
+    height: auto;
+    min-height: 600px;
+    display:inline-block;
+    vertical-align: top;
+    border:1px solid black;
+}
+.prop{
+    display:inline-block;
+    min-height: 20px;
+    width: 45%;
+    background-color: #bbb;
+}
+.propVal{
+    display:inline-block;
+    min-height: 20px;
+    width: 53%;
+    border-style: none;
+}
+.propStr{
+    border: 1px solid black;
+    min-height: 20px;
+}
